@@ -1,12 +1,15 @@
 import { defineConfig, type UserConfig } from "vite";
 import { qwikVite } from "@builder.io/qwik/optimizer";
 import { qwikCity } from "@builder.io/qwik-city/vite";
-import { qwikSpeakInline } from 'qwik-speak/inline';
+import { qwikSpeakInline, toPrefixAsNeeded } from 'qwik-speak/inline';
 import tsconfigPaths from "vite-tsconfig-paths";
+import { rewriteRoutes } from "./src/routes/plugin";
 
-export default defineConfig((): UserConfig => {
+export default defineConfig(({ mode }): UserConfig => {
   return {
-    plugins: [qwikCity(), qwikVite(), tsconfigPaths(), qwikSpeakInline({
+    plugins: [qwikCity({
+      rewriteRoutes: toPrefixAsNeeded(rewriteRoutes, mode)
+    }), qwikVite(), tsconfigPaths(), qwikSpeakInline({
       supportedLangs: ['en-US', 'it-IT'],
       defaultLang: 'en-US',
       assetsPath: 'i18n'

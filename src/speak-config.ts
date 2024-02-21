@@ -6,6 +6,9 @@ export const config: SpeakConfig = {
     { lang: 'it-IT', currency: 'EUR', timeZone: 'Europe/Rome' },
     { lang: 'en-US', currency: 'USD', timeZone: 'America/Los_Angeles' }
   ],
+  domainBasedRouting: {
+    prefix: 'as-needed'
+  },
   // Translations available in the whole app
   assets: [
     'app'

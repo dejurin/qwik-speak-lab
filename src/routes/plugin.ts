@@ -11,7 +11,7 @@ export const rewriteRoutes: RewriteRouteOption[] = [
     },
     {
       prefix: 'it',
-      domain: 'it.emoj.info',
+      domain: 'it-it.emoj.info',
       paths: {}
 
     }

@@ -157,3 +157,6 @@ pnpm-debug.log*
 # Yarn
 .yarn/*
 !.yarn/releases
+
+# Cloudflare
+functions/**/*.js
